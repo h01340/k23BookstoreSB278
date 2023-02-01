@@ -22,36 +22,16 @@ public class Book {
 	private int publishingYear, ranking;
 	private double price;
 
-	@ManyToOne
-	//JsonIgnore helps to prevent endless loop
-	@JsonIgnore
-	@JoinColumn(name="categoryid")
-	private Category category;
 
 	public Book() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-/**
- * 
-			bookRepository.save(new Book("Kasvoton kuolema", "Hennig Mankell", 2002, 12, 1,
-					categoryRepository.findByName("Dekkarit").get(0)));
- */
-
-	public Book(String title, String author, int year, double price, int ranking,  Category category) {
-		super();
-		this.title = title;
-		this.author = author;
-		this.publishingYear = year;
-		this.price = price;
-		this.ranking = ranking;
-		this.category = category;
-	}
 
 	
 	
-	public Book(String title, String author, String isbn, int year, int ranking, double price, Category category) {
+	public Book(String title, String author, String isbn, int year, double price, int ranking) {
 		super();
 		this.title = title;
 		this.author = author;
@@ -59,7 +39,7 @@ public class Book {
 		this.publishingYear = year;
 		this.ranking = ranking;
 		this.price = price;
-		this.category = category;
+	
 	}
 
 
@@ -119,15 +99,6 @@ public class Book {
 	public void setPrice(double price) {
 		this.price = price;
 	}
-
-	public Category getCategory() {
-		return category;
-	}
-
-	public void setCategory(Category category) {
-		this.category = category;
-	}
-
 	@Override
 	public String toString() {
 		return "Book [id=" + id + ", title=" + title + ", author=" + author + ", isbn=" + isbn + ", year=" + publishingYear
