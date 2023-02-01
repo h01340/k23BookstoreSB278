@@ -9,5 +9,7 @@ public class BookstoreSb278Application {
 	public static void main(String[] args) {
 		SpringApplication.run(BookstoreSb278Application.class, args);
 	}
+	
+	//create demo data
 
 }
